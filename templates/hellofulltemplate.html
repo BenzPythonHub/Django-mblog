@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django hellotemplate</title>
+    <!-- 網路書上都亂教,註解的是錯的 -->
+    <!-- { % load staticfiles % } -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" />
+</head>
+<body>
+    <!-- <h1>Welcome: {{ username }} XD</h1>
+    <h2>Current Time is: {{now}}</h2> -->
+    <div id="home">
+        <img src="{% static "images/rilakkuma1.jpg" %}" alt="Welcome" width="32" height="32" />
+        <span class="info"> Welcome: {{ username }}</span>
+        <h2>Current Time is: {{ now }}</h2>
+    </div>
+</body>
+</html>
