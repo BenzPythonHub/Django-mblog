@@ -109,6 +109,32 @@ TIME_ZONE = 'Asia/Taipei'
 
 ```
 
+#### render 語法
+```python
+#第一個參數是HttpRequest物件,第二個參數是模板名稱,最後一個參數是字典
+render(request, template_name, context)
+#例如,傳遞字典{"no":1, "name": "Amy", "age": 20}給顯示模板dice.html
+dict1 = {"no":1, "name": "Amy", "age": 20}
+render(request, "dice.html", dict1)
+```
+
+#### template 語言
+```python
+#判斷式
+{% if score >= 90 %}
+    your_pass = 'good'
+{% elif score >= 60 %}
+    your_pass = True
+{% else %}
+    your_pass = False
+{% endif %}
+#迴圈
+{% for i in list1 %}
+    {{ i }},
+{% empty %}
+    沒有資料
+{% endfor %}
+```
 
 
 
