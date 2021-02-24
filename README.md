@@ -136,6 +136,15 @@ render(request, "dice.html", dict1)
 {% endfor %}
 ```
 
+#### 在model.py中定義class類別,每一個類別相當一個表
+
+#### 利用admin可以管理後台,新增.修改或刪除資料,在Admin管理界面中可以設定顯示多個欄位資料
+
+#### 創建後台使用者帳號密碼
+```python
+python manage.py createsuperuser
+```
+
 
 
 
