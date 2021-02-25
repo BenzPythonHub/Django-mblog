@@ -145,6 +145,30 @@ render(request, "dice.html", dict1)
 python manage.py createsuperuser
 ```
 
+#### Django ORM CRUD
+```python
+from myapp.models import student
+#create
+student.objects.create(cName='王大明', cSex='M', cBirthday='1977-09-28', cEmail='wangming@gmail.com', cPhone='0911123456', cAddr='台北市羅斯福路一段3號')
+#read
+student.objects.all()
+#單筆資料查尋
+student.objects.get(pk=1)
+student.objects.filter(cName='李大大')
+#廣泛查詢 這裡使用 contains 針對cName欄位，篩選出所有標題中包含李字眼的 student
+student.objects.filter(cName__contains='李')
+
+#update
+student_lee = student.objects.filter(cName__contains='李')
+student_lee[0]
+student_lee[1]
+student_lee.update(cName='李冰冰')
+
+#delete
+student_lee.delete()
+
+```
+
 
 
 
