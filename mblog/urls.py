@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp.views import sayhello, sayuserhello, hellotemplate, hellofulltemplate, dice
+# from myapp.views import sayhello, sayuserhello, hellotemplate, hellofulltemplate, dice
+from myapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('hellotemplate/<username>/', hellotemplate),
     path('hellofulltemplate/<username>/', hellofulltemplate),
     path('dice', dice),
+    path('student/<id>', search_student),
 ]

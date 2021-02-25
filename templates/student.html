@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django StudentTemplate</title>
+</head>
+<body>
+    {% if student_id %}
+        <h1>student ID is: {{ student_id.id }}</h1>
+        <h1>student name is: {{ student_id.cName }}</h1>
+        <h1>student gender is: {{ student_id.cSex }}</h1>
+        <h1>student birthday is: {{ student_id.cBirthday }}</h1>
+        <h1>student email is: {{ student_id.cEmail }}</h1>
+        <h1>student Phone is: {{ student_id.cPhone }}</h1>
+        <h1>student Address is: {{ student_id.cAddr }}</h1>
+    {% else %}
+        <h1>student ID is: {{ errormessage }}</h1>
+    {% endif %}
+</body>
+</html>
