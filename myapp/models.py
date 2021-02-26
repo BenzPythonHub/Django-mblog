@@ -13,3 +13,8 @@ class student(models.Model):
     def __str__(self):
         return self.cName
 
+class comments(models.Model):
+    comment_message = models.CharField(max_length=120, null=False)
+
+    def __str__(self):
+        return self.comment_message

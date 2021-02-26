@@ -26,4 +26,6 @@ urlpatterns = [
     path('hellofulltemplate/<username>/', hellofulltemplate),
     path('dice', dice),
     path('student/<id>', search_student),
+    path('posttest', posttest),
+    path('comment', comment),
 ]

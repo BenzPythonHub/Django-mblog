@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from datetime import datetime
 import random
-from .models import student
+from .models import student, comments
+# from .models import *
 
 def sayhello(request):
     return HttpResponse("Hello Django XD")
@@ -32,6 +33,19 @@ def search_student(request, id):
         errormessage = r'讀取不存在或是錯誤!!'
     return render(request, "student.html", locals())
 
+def redirect_test(request):
+    return redirect('dice')
+
+def posttest(request):
+    return render(request, "posttest.html", locals())
+
+def comment(request):
+    if request.method == 'POST':
+        message = request.POST['comment']
+        #儲存進資料庫
+        unit = comments.objects.create(comment_message=message)
+        unit.save()
+        return HttpResponse(message)
 
 
 # Create your views here.

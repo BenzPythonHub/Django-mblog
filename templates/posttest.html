@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django PostTest</title>
+</head>
+<body>
+    <!-- {% csrf_token %} 使用 POST方法必須加上template csrf 語言讓post方法通過 -->
+    <form method="POST" action="comment">{% csrf_token %}
+        <label for="comment">Comment:</label><br>
+        <input type="text" id="comment" name="comment"><br>
+            <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>

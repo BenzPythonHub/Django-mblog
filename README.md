@@ -134,6 +134,19 @@ render(request, "dice.html", dict1)
 {% empty %}
     沒有資料
 {% endfor %}
+
+#繼承模板
+{% extends "base_header.html" %}
+#主內容區
+{% block content %}
+    <h1>Hi, This is me ~</h1>
+{% endblock %}
+
+#側邊欄位
+{% block sidebar %}
+    <ul class="sidebar-nav">
+{% endblock %}
+{% extends "base_footer.html" %}
 ```
 
 #### 在model.py中定義class類別,每一個類別相當一個表
@@ -147,6 +160,29 @@ python manage.py createsuperuser
 
 #### Django ORM CRUD
 ```python
+#資料庫欄位資料屬性
+#創立ID用
+AutoField:id models.AutoField(primary_key=True)
+#日期
+DateField
+DateTimeField
+#數字
+IntegerField
+#內容
+CharField
+TextField
+#網站
+URLField
+#UUID
+UUIDField
+#Email
+EmailField
+#檔案
+FileField
+#圖片
+ImageField
+
+#Django QuerySet API
 from myapp.models import student
 #create
 student.objects.create(cName='王大明', cSex='M', cBirthday='1977-09-28', cEmail='wangming@gmail.com', cPhone='0911123456', cAddr='台北市羅斯福路一段3號')
@@ -167,6 +203,16 @@ student_lee.update(cName='李冰冰')
 #delete
 student_lee.delete()
 
+```
+
+#### views 裝飾子
+```python
+#需要登入才能使用此函式
+@method_decorator(login_required)
+#永遠不要有cache
+@never_cache(view_func)
+#規定請求的方法
+@require_http_methods(["GET", "POST"])
 ```
 
 
