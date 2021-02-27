@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Articles</title>
+</head>
+<body>
+    {% if form %}
+        <form method="POST" action="articles">{% csrf_token %}
+            {{ form }}
+            <!-- <h3>content</h3><br>
+            {{ form.content }}<br>
+            <h3>email</h3><br>
+            {{ form.email }}<br>
+            <h3>num</h3><br>
+            {{ form.num }}<br> -->
+            <input type="submit" value="submit">
+        </form>
+    {% elif context.email %}
+        <h1>{{ context.content }}</h1>
+        <h1>{{ context.email }}</h1>
+        <h1>{{ context.num }}</h1>
+    {% elif context.errormsg %}
+        <h1>{{ context.errormsg }}</h1>
+    {% endif %}
+</body>
+</html>

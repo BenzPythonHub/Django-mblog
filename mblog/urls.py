@@ -28,4 +28,6 @@ urlpatterns = [
     path('student/<id>', search_student),
     path('posttest', posttest),
     path('comment', comment),
+    path('articles', articles),
+    path('upload', upload_file),
 ]
