@@ -98,15 +98,30 @@ TEMPLATES = [
     },
 ]
 ###############################################################################
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join.(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 ###############################################################################
 LANGUAGE_CODE = 'zh-Hant'
 
 TIME_ZONE = 'Asia/Taipei'
 
+```
+
+#### gunicorn 佈署後css .js無法讀取問題
+```bash
+#All You need is dj-static package.
+python -m pip install dj-static
+#Configure your static assets in settings.py:
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+#Then, update your wsgi.py file to use dj-static:
+from django.core.wsgi import get_wsgi_application
+from dj_static import Cling
+
+application = Cling(get_wsgi_application())
 ```
 
 #### render 語法

@@ -4,7 +4,7 @@ from myapp.models import student, comments
 # Register your models here.
 
 # admin.site.register(student)
-# admin.site.register(comments)
+
 
 class studentAdmin(admin.ModelAdmin):
     list_display=('id', 'cName', 'cBirthday', 'cEmail', 'cPhone', 'cAddr')
@@ -16,3 +16,4 @@ class studentAdmin(admin.ModelAdmin):
     ordering = ('id', )
 
 admin.site.register(student, studentAdmin)
+admin.site.register(comments)
